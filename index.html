@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sample HTML Page</title>
+  <meta name="description" content="A simple sample HTML page demonstrating semantic structure, responsive layout and basic interactivity." />
+
+  <!-- Simple CSS (embedded for a single-file demo) -->
+  <style>
+    :root{
+      --max-width: 1100px;
+      --accent: #0b6efd;
+      --muted: #6b7280;
+      --radius: 10px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing: border-box}
+    body{
+      margin:0;
+      color:#0f1724;
+      line-height:1.45;
+      background:linear-gradient(180deg,#fbfdff,#f6f9ff);
+      padding:24px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background:white;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(15,23,36,0.08);
+      overflow:hidden;
+    }
+
+    header{
+      padding:20px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid #eef2ff;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:8px;
+      display:inline-grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),#7c4dff);
+      color:white;
+      font-weight:700;
+      font-size:18px;
+      box-shadow:0 4px 14px rgba(11,110,253,0.18);
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:14px;
+      margin:0;
+      padding:0;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:600;
+    }
+    nav a:hover{ color:var(--accent) }
+
+    main{
+      padding:28px;
+      display:grid;
+      gap:20px;
+    }
+
+    .hero{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .hero .content{
+      flex:1 1 320px;
+    }
+    .hero h1{
+      margin:0 0 10px 0;
+      font-size:28px;
+      line-height:1.1;
+    }
+    .hero p{ margin:0 0 16px 0; color:var(--muted) }
+
+    .cta{
+      display:inline-block;
+      padding:10px 16px;
+      background:var(--accent);
+      color:white;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+
+    .card{
+      border:1px solid #eef2ff;
+      padding:16px;
+      border-radius:10px;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+    }
+    .card h3{ margin:0 0 8px 0; font-size:16px }
+    .card p{ margin:0; color:var(--muted); font-size:14px }
+
+    form{
+      display:grid;
+      gap:10px;
+      max-width:560px;
+    }
+    label{ font-weight:600; font-size:14px }
+    input[type="text"], input[type="email"], textarea{
+      padding:10px;
+      border:1px solid #e6eefc;
+      border-radius:8px;
+      font-size:14px;
+      width:100%;
+    }
+    button{
+      padding:10px 14px;
+      border:0;
+      background:var(--accent);
+      color:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    footer{
+      padding:18px 28px;
+      border-top:1px solid #eef2ff;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:640px){
+      .hero h1{ font-size:22px }
+      header{ padding:16px }
+      main{ padding:18px }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="banner" aria-label="Sample page container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">S</div>
+        <div>
+          <div style="font-weight:800">SampleSite</div>
+          <div style="font-size:12px;color:var(--muted)">A minimal demo</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero section -->
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="content">
+          <h1 id="hero-title">Simple, semantic HTML — ready to build on</h1>
+          <p>Use this template as a base: accessible markup, responsive layout, and compact CSS. Great for demos, teaching, or quick prototypes.</p>
+          <a class="cta" href="#contact">Get in touch</a>
+        </div>
+
+        <!-- Quick info cards -->
+        <div style="min-width:260px">
+          <div class="card" role="region" aria-label="Quick info">
+            <h3>Fast to edit</h3>
+            <p>All code is in one file so you can copy and iterate quickly.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features grid -->
+      <section id="features" aria-labelledby="features-heading">
+        <h2 id="features-heading" style="margin:0 0 12px 0">Features</h2>
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3>Semantic markup</h3>
+            <p>Header, nav, main, section, article, footer — structured for accessibility and SEO.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3>Responsive</h3>
+            <p>Grid and flexible spacing keep the layout usable on phones and desktops.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3>Accessible</h3>
+            <p>Landmarks, ARIA labels and clear focusable controls help screen-reader users.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact form -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" style="margin:18px 0 8px 0">Contact us</h2>
+
+        <form id="contactForm" novalidate>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name" />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us something..." required></textarea>
+          </div>
+
+          <div>
+            <button type="submit">Send message</button>
+          </div>
+
+          <div id="formStatus" aria-live="polite" style="color:var(--muted);font-size:13px"></div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> SampleSite</div>
+      <div>Made with ❤️ — simple demo</div>
+    </footer>
+  </div>
+
+  <!-- Tiny JS for interactivity -->
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple client-side form handling (no network submission)
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Basic validation
+      if (!name || !email || !message) {
+        document.getElementById('formStatus').textContent = 'Please fill all fields.';
+        return;
+      }
+
+      // Simulate sending
+      document.getElementById('formStatus').textContent = 'Thanks — your message has been received (demo).';
+
+      // Clear after a short delay
+      setTimeout(() => {
+        document.getElementById('contactForm').reset();
+      }, 900);
+    });
+  </script>
+</body>
+</html>
